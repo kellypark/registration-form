@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
-    <EditText
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/email"/>
-    <!--email must have @ and .com-->
-
-    <EditText
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/username" />
-
-    <Spinner
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:id="@+id/root"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
 
-    <EditText
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="@string/password" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all_fields_are_mandatory"
+            android:paddingBottom="16dp" />
+        <EditText
+            android:id="@+id/emailField"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/email" />
 
-    <!-- validation: must have numbers and letters, more than 8 digits -->
+        <EditText
+            android:id="@+id/usernameField"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/username" />
 
-    <Button
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:text="@string/register"/>
+        <EditText
+            android:id="@+id/passwordField"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/registerButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/register" />
+    </LinearLayout>
+</layout>

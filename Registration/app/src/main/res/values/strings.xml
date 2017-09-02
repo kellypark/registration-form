@@ -4,4 +4,6 @@
     <string name="password">Password</string>
     <string name="username">Username</string>
     <string name="email">Email</string>
+    <string name="all_fields_are_mandatory">All fields are mandatory</string>
+    <string name="yay_you_registered">Yay you registered!</string>
 </resources>
