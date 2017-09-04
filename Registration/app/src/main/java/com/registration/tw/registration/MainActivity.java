@@ -14,6 +14,8 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String EMAIL_VALIDATION_REGEX = "^[a-zA-Z0-9_]*@[a-zA-Z0-9]*.com";
+    public static final String PASSWORD_VALIDATION_REGEX = "^[a-zA-Z0-9_]{4,}";
     @BindView(R.id.registerButton)
     Button registerButton;
 
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.root)
     LinearLayout rootContainer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,18 +49,21 @@ public class MainActivity extends AppCompatActivity {
                 if (!emailField.getText().toString().equals("") &&
                         !usernameField.getText().toString().equals("") &&
                         !passwordField.getText().toString().equals("")) {
-                    if (emailField.getText().toString().matches("^[a-zA-Z0-9_]*@[a-zA-Z0-9]*.com") &&
-                            passwordField.getText().toString().matches("^[a-zA-Z0-9_]{4,}")) {
+                    if(!emailField.getText().toString().matches(EMAIL_VALIDATION_REGEX)){
+                        Snackbar snackbar = Snackbar.make(rootContainer, getString(R.string.emailValidationMessage), Snackbar.LENGTH_LONG);
+                        snackbar.show();
+                    }
+                    else if(!passwordField.getText().toString().matches(PASSWORD_VALIDATION_REGEX)){
+                        Snackbar.make(rootContainer, getString(R.string.passwordValidationMessage), Snackbar.LENGTH_LONG).show();
+                    }
+                    else {
                         Intent intent = new Intent(MainActivity.this, RegistrationSuccessActivity.class);
                         startActivity(intent);
-                    } else {
-                        Snackbar.make(rootContainer, "Sorry cannot register", Snackbar.LENGTH_LONG).show();
                     }
                 } else {
-                    Snackbar.make(rootContainer, "Sorry cannot register", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(rootContainer, getString(R.string.mandatoryFieldValidationMessage), Snackbar.LENGTH_LONG).show();
                 }
             }
         });
     }
-
 }

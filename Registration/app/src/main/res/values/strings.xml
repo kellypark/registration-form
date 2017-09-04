@@ -6,4 +6,7 @@
     <string name="email">Email</string>
     <string name="all_fields_are_mandatory">All fields are mandatory</string>
     <string name="yay_you_registered">Yay you registered!</string>
+    <string name="emailValidationMessage">Email address is in invalid format</string>
+    <string name="passwordValidationMessage">Password must be at least 4 alphanumeric characters</string>
+    <string name="mandatoryFieldValidationMessage">All field must be filled</string>
 </resources>
