@@ -1,13 +1,16 @@
 package com.registration.tw.registration;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.root)
     LinearLayout rootContainer;
 
+    @BindView(R.id.registrationInstruction)
+    TextView registrationInstruction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,24 +51,42 @@ public class MainActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!emailField.getText().toString().equals("") &&
-                        !usernameField.getText().toString().equals("") &&
-                        !passwordField.getText().toString().equals("")) {
-                    if(!emailField.getText().toString().matches(EMAIL_VALIDATION_REGEX)){
-                        Snackbar snackbar = Snackbar.make(rootContainer, getString(R.string.emailValidationMessage), Snackbar.LENGTH_LONG);
-                        snackbar.show();
+                hideSoftKeyboard();
+                String username = usernameField.getText().toString();
+                String email = emailField.getText().toString();
+                String password = passwordField.getText().toString();
+
+                if (!email.isEmpty() &&
+                        !username.isEmpty() &&
+                        !password.isEmpty()) {
+                    if(!email.matches(EMAIL_VALIDATION_REGEX)){
+                        showSnackbar(R.string.email_validation_message);
                     }
-                    else if(!passwordField.getText().toString().matches(PASSWORD_VALIDATION_REGEX)){
-                        Snackbar.make(rootContainer, getString(R.string.passwordValidationMessage), Snackbar.LENGTH_LONG).show();
+                    else if(!password.matches(PASSWORD_VALIDATION_REGEX)){
+                        showSnackbar(R.string.password_validation_message);
                     }
                     else {
+
                         Intent intent = new Intent(MainActivity.this, RegistrationSuccessActivity.class);
+                        intent.putExtra(getString(R.string.REGISTERED_USER), new User(username, email, password));
                         startActivity(intent);
                     }
                 } else {
-                    Snackbar.make(rootContainer, getString(R.string.mandatoryFieldValidationMessage), Snackbar.LENGTH_LONG).show();
+                    showSnackbar(R.string.mandatory_field_validation_message);
                 }
             }
         });
+    }
+
+    private void showSnackbar(int id) {
+        Snackbar.make(rootContainer, getString(id), Snackbar.LENGTH_LONG).show();
+    }
+
+    private void hideSoftKeyboard() {
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }
