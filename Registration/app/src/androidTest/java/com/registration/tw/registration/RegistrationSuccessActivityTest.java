@@ -17,7 +17,6 @@ import static org.junit.Assert.assertThat;
 
 public class RegistrationSuccessActivityTest {
 
-
     private User user = new User("username", "email@email.com", "password");
 
     @Rule

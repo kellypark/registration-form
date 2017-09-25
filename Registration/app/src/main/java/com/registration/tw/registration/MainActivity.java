@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showSnackbar(int id) {
-        Snackbar.make(rootContainer, getString(id), Snackbar.LENGTH_LONG).show();
+        Snackbar.make(rootContainer, getString(id), Snackbar.LENGTH_INDEFINITE).show();
     }
 
     private void hideSoftKeyboard() {
