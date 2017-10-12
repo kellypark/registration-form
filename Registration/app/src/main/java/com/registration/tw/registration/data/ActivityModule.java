@@ -1,5 +1,6 @@
 package com.registration.tw.registration.data;
 
+import com.registration.tw.registration.AlternateMVPMainPresenter;
 import com.registration.tw.registration.MainActivityPresenter;
 
 import dagger.Module;
@@ -13,4 +14,8 @@ public class ActivityModule {
         return new MainActivityPresenter();
     }
 
+    @Provides
+    public AlternateMVPMainPresenter provideAlternateMVPMainPresenter() {
+        return new AlternateMVPMainPresenter();
+    }
 }

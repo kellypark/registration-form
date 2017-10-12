@@ -1,6 +1,6 @@
 package com.registration.tw.registration;
 
-class AlternateMVPMainPresenter {
+public class AlternateMVPMainPresenter {
     public static final String EMAIL_VALIDATION_REGEX = "^[a-zA-Z0-9_]*@[a-zA-Z0-9]*.com";
     public static final String PASSWORD_VALIDATION_REGEX = "^[a-zA-Z0-9_]{4,}";
 

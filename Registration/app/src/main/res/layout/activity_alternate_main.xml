@@ -2,8 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <variable name="main" type="com.registration.tw.registration.AlternateMainActivity" />
-        <variable name="viewModel" type="com.registration.tw.registration.AlternateMainActivityViewModel" />
+        <!--<variable name="main" type="com.registration.tw.registration.AlternateMVVMMainActivity" />-->
+        <variable name="viewModel" type="com.registration.tw.registration.AlternateMVVMMainActivityViewModel" />
     </data>
 
     <LinearLayout
@@ -50,6 +50,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:text="@string/register"
-            android:onClick="@{() -> viewModel.onRegister(main)}"/>
+            android:onClick="@{() -> viewModel.onRegister()}"/>
     </LinearLayout>
 </layout>
