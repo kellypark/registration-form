@@ -42,16 +42,6 @@ public class MainActivityUiTest {
     }
 
     @Test
-    @Ignore
-    public void shouldDisplayMandatoryFieldsMessage() throws InterruptedException {
-        activity.launchActivity(new Intent());
-        onView(withId(R.id.registerButton)).perform(click());
-
-        onView(allOf(withId(android.support.design.R.id.snackbar_text), withText("All fields must be filled")))
-                .check(matches(isDisplayed()));
-    }
-
-    @Test
     public void shouldDisplayEmailValidationMessage() {
         activity.launchActivity(new Intent());
         onView(withId(R.id.emailField)).perform(ViewActions.typeText("email"));
