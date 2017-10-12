@@ -1,5 +1,8 @@
 package com.registration.tw.registration;
 
+import com.registration.tw.registration.mvc.MainActivityPresenter;
+import com.registration.tw.registration.mvc.MainActivityView;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

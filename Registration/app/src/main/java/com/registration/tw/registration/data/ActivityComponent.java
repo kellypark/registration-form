@@ -1,7 +1,7 @@
 package com.registration.tw.registration.data;
 
-import com.registration.tw.registration.AlternateMVPMainActivity;
-import com.registration.tw.registration.MainActivity;
+import com.registration.tw.registration.mvp.AlternateMVPMainActivity;
+import com.registration.tw.registration.mvc.MainActivity;
 
 import javax.inject.Singleton;
 

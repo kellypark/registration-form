@@ -1,7 +1,7 @@
 package com.registration.tw.registration.data;
 
-import com.registration.tw.registration.AlternateMVPMainPresenter;
-import com.registration.tw.registration.MainActivityPresenter;
+import com.registration.tw.registration.mvp.AlternateMVPMainPresenter;
+import com.registration.tw.registration.mvc.MainActivityPresenter;
 
 import dagger.Module;
 import dagger.Provides;

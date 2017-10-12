@@ -1,5 +1,8 @@
 package com.registration.tw.registration;
 
+import com.registration.tw.registration.mvp.AlternateMVPMainPresenter;
+import com.registration.tw.registration.mvp.AlternateMVPMainView;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
