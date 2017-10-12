@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpForm() {
-        // this is meant to look bad
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
